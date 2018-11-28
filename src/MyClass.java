@@ -64,6 +64,17 @@ public class MyClass
 		}
 	}
 	/////////////////////////////////////////////////
+public static void zero_if_less_than_zero(int [] array)
+	{
+		for (int i=0;i<array.length;i++)
+		{
+			if (array[i]<0)
+			{
+				array[i]=0;
+			}
+		}
+		
+	}
 	public static void main(String[] args)
 	{	
 
