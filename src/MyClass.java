@@ -75,6 +75,24 @@ public static void zero_if_less_than_zero(int [] array)
 		}
 		
 	}
+	////////////////////////////////////////////////////////
+	public static void Shuffle(int []arr)
+    {
+        Random rand = new Random();
+        for(int i = 0;i<arr.length;i++)
+        {
+            int index = rand.nextInt(arr.length);
+            int temp = arr[index];
+            arr[index] = arr[i];
+            arr[i] = temp;
+        }
+        for(int i=0;i<arr.length;i++)
+            System.out.print(arr[i]+ " ");
+
+    }
+    //////////////////////////////////////////////////
+
+
 	public static void main(String[] args)
 	{	
 
