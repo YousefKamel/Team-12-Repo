@@ -8,6 +8,20 @@ public class MyClass
 	{	
 	}
 	/////////////////////////////////////////////////
+public static int countprimes(int []arr){
+        int counter=0;
+        boolean flag=true;
+        for(int i=0;i<arr.length;i++){
+            for(int j=2;j<arr[i];j++){
+                if(arr[i]%j==0)
+                   flag=false; 
+                    
+            }
+            if(flag)
+                counter++;
+            flag=true;
+        }
+        return counter;}
 	public static boolean CheckSorted(int [] arr)
     	{
         boolean value = true;
