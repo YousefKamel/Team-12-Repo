@@ -110,7 +110,38 @@ public static void zero_if_less_than_zero(int [] array)
         Arrays.sort(arr);
         return arr[0];
     }
-
+///////////////////////////////////////////////////////
+public static int MostRepeatedValue(ArrayList <Integer> arr){
+       HashMap <Integer,Integer> hash=new HashMap<>();
+       //////intial hash map with array numbers (unique) /////
+        for(int i=0;i<arr.size();i++){ 
+            hash.put(arr.get(i),0);
+        }
+        
+        int temp=0;
+        //////////CALCULATE NUMBER OF REPETITION/////////////
+        for(Map.Entry m:hash.entrySet()){  
+            for(int i=0;i<arr.size();i++){
+                if(arr.get(i)==m.getKey()){
+                    temp=(int) m.getValue(); //////get value inside map
+                    temp++; //////increment it 
+                    hash.put((Integer) m.getKey(),temp); ///overwrite it
+                }
+            }
+        }
+        
+        /////////GET MOST REPEATED//////////////
+        
+        int max=0; /////max number of repeatition
+        int repeated_most=0; ////// most repeated value 
+      for(Map.Entry m:hash.entrySet()){ 
+          if(max < ((int) m.getValue())){
+              max=(int) m.getValue();
+              repeated_most=(int) m.getKey();
+          } 
+          }
+     return(repeated_most);
+    }
 
 	public static void main(String[] args)
 	{	
