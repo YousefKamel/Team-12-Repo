@@ -105,6 +105,11 @@ public static void zero_if_less_than_zero(int [] array)
 
     }
     //////////////////////////////////////////////////
+	public static int find_min_prime(int arr[])
+    {
+        Arrays.sort(arr);
+        return arr[0];
+    }
 
 
 	public static void main(String[] args)
