@@ -7,6 +7,23 @@ public class MyClass
 	public MyClass()
 	{	
 	}
+
+	/////////////////////////////////////////////////
+	static void SortArray() {
+        	Scanner scan = new Scanner(System.in);
+        	System.out.append("Enter number of elements in array :");
+        	int n = scan.nextInt();
+        	int[] array = new int[n];
+        	for (int i = 0; i < n; i++) {
+           	      array[i] = scan.nextInt();
+        	}
+       		 Arrays.sort(array);
+       		 System.out.println("Number after Sorting...");
+       		 for (int i = 0; i < n; i++) {
+          	      System.out.print(array[i] + " ");
+       		 }
+        	System.out.println();
+    	}
 	/////////////////////////////////////////////////
         public static int countprimes(int [] arr)
         {
@@ -152,6 +169,7 @@ public class MyClass
 		System.out.println("5- Shuffle.");
 		System.out.println("6- Find smallest prime.");
 		System.out.println("7- Most repeated value.");
+		System.out.println("8- Sort an Array.");
 		System.out.println("--------------------");
 		System.out.println("Please Enter Function Number You Want OR Enter (0) To Execute All Functions.");
 		int Choice;
@@ -259,6 +277,9 @@ public class MyClass
 			}
 			System.out.println("7- Most repeated value: "+MostRepeatedValue(li));
 			System.out.println("--------------------");
+		}
+		else if (Choice == 8){
+			SortArray();
 		}
 		else if(Choice == 0)
 		{
