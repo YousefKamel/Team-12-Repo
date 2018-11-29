@@ -8,20 +8,19 @@ public class MyClass
 	{	
 	}
 	/////////////////////////////////////////////////
-public static int countprimes(int []arr){
-        int counter=0;
-        boolean flag=true;
-        for(int i=0;i<arr.length;i++){
-            for(int j=2;j<arr[i];j++){
-                if(arr[i]%j==0)
-                   flag=false; 
-                    
-            }
-            if(flag)
-                counter++;
-            flag=true;
+        public static int countprimes(int [] arr)
+        {
+        int Count=0;
+        for(int i=0; i<arr.length; i++)
+        {
+        	if(isPrimeNumber(arr[i]) == true)
+        	{
+        		Count++;
+        	}
         }
-        return counter;}
+        return Count;
+        }
+        //////////////////////////////////////////////////
 	public static boolean CheckSorted(int [] arr)
     	{
         boolean value = true;
@@ -66,7 +65,7 @@ public static int countprimes(int []arr){
             j++;
         }
         return (factors == 2);
-    }
+        }
 	//////////////////////////////////////////////////
 	public static void ReturnPrime(int A[])
 	{
@@ -78,7 +77,7 @@ public static int countprimes(int []arr){
 		}
 	}
 	/////////////////////////////////////////////////
-public static void zero_if_less_than_zero(int [] array)
+        public static void zero_if_less_than_zero(int [] array)
 	{
 		for (int i=0;i<array.length;i++)
 		{
@@ -87,11 +86,10 @@ public static void zero_if_less_than_zero(int [] array)
 				array[i]=0;
 			}
 		}
-		
 	}
 	////////////////////////////////////////////////////////
 	public static void Shuffle(int []arr)
-    {
+        {
         Random rand = new Random();
         for(int i = 0;i<arr.length;i++)
         {
@@ -103,48 +101,226 @@ public static void zero_if_less_than_zero(int [] array)
         for(int i=0;i<arr.length;i++)
             System.out.print(arr[i]+ " ");
 
-    }
-    //////////////////////////////////////////////////
-	public static int find_min_prime(int arr[])
-    {
-        Arrays.sort(arr);
-        return arr[0];
-    }
-///////////////////////////////////////////////////////
-public static int MostRepeatedValue(ArrayList <Integer> arr){
-       HashMap <Integer,Integer> hash=new HashMap<>();
-       //////intial hash map with array numbers (unique) /////
-        for(int i=0;i<arr.size();i++){ 
-            hash.put(arr.get(i),0);
         }
-        
-        int temp=0;
-        //////////CALCULATE NUMBER OF REPETITION/////////////
-        for(Map.Entry m:hash.entrySet()){  
-            for(int i=0;i<arr.size();i++){
-                if(arr.get(i)==m.getKey()){
-                    temp=(int) m.getValue(); //////get value inside map
-                    temp++; //////increment it 
-                    hash.put((Integer) m.getKey(),temp); ///overwrite it
-                }
-            }
+        //////////////////////////////////////////////////
+        public static void find_min_prime(ArrayList <Integer> arr)
+        {
+		Collections.sort(arr);
+		System.out.print(arr.get(0));
+		System.out.println(" ");
         }
-        
-        /////////GET MOST REPEATED//////////////
-        
-        int max=0; /////max number of repeatition
-        int repeated_most=0; ////// most repeated value 
-      for(Map.Entry m:hash.entrySet()){ 
-          if(max < ((int) m.getValue())){
-              max=(int) m.getValue();
-              repeated_most=(int) m.getKey();
-          } 
-          }
-     return(repeated_most);
-    }
-
+        /////////////////////////////////////////////////////
+	public static int MostRepeatedValue(ArrayList <Integer> arr)
+	{
+	       HashMap <Integer,Integer> hash=new HashMap<>();
+	       //////intial hash map with array numbers (unique) /////
+	        for(int i=0;i<arr.size();i++){ 
+	            hash.put(arr.get(i),0);
+	        }
+	        int temp=0;
+	        //////////CALCULATE NUMBER OF REPETITION/////////////
+	        for(Map.Entry m:hash.entrySet()){  
+	            for(int i=0;i<arr.size();i++){
+	                if(arr.get(i)==m.getKey()){
+	                    temp=(int) m.getValue(); //////get value inside map
+	                    temp++; //////increment it 
+	                    hash.put((Integer) m.getKey(),temp); ///overwrite it
+	                }
+	            }
+	        }
+	        /////////GET MOST REPEATED//////////////
+	        int max=0; /////max number of repeatition
+	        int repeated_most=0; ////// most repeated value 
+	      for(Map.Entry m:hash.entrySet()){ 
+	          if(max < ((int) m.getValue())){
+	              max=(int) m.getValue();
+	              repeated_most=(int) m.getKey();
+	          } 
+	          }
+	     return(repeated_most);
+	    }
+	////////////////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args)
 	{	
-
+		Scanner input = new Scanner(System.in);
+		System.out.println("Available Functions: ");
+		System.out.println("--------------------");
+		System.out.println("1- Count primes.");
+		System.out.println("2- Check Sorted.");
+		System.out.println("3- Return only primes.");
+		System.out.println("4- Zero if less than zero.");
+		System.out.println("5- Shuffle.");
+		System.out.println("6- Find smallest prime.");
+		System.out.println("7- Most repeated value.");
+		System.out.println("--------------------");
+		System.out.println("Please Enter Function Number You Want OR Enter (0) To Execute All Functions.");
+		int Choice;
+		Choice = input.nextInt();
+		System.out.println("Please Enter Array Size (Number of Array elements):");
+		int Size;
+		Size = input.nextInt();
+		System.out.println("Please Enter Array Elements (Each element in a new Line):");
+		if(Choice == 1)
+		{
+			int InputArray[]= new int [Size];
+			for(int i=0; i<Size; i++)
+			{
+				InputArray[i] = input.nextInt();
+			}
+			System.out.println("1- Count primes: "+countprimes(InputArray));
+			System.out.println("--------------------");
+		}
+		else if(Choice == 2)
+		{
+			int InputArray[]= new int [Size];
+			for(int i=0; i<Size; i++)
+			{
+				InputArray[i] = input.nextInt();
+			}
+			boolean flag2 = CheckSorted(InputArray);
+			if(flag2 == true)
+			{
+				System.out.println("2- Check Sorted: True.");
+			}
+			else if(flag2 == false)
+			{
+				System.out.println("2- Check Sorted: False.");
+			}
+			System.out.println("--------------------");
+		}
+		else if(Choice == 3)
+		{
+			int InputArray[]= new int [Size];
+			for(int i=0; i<Size; i++)
+			{
+				InputArray[i] = input.nextInt();
+			}
+			System.out.println("3- Return Prime: ");
+			ReturnPrime(InputArray);
+			System.out.println("--------------------");
+		}
+		else if(Choice == 4)
+		{
+			int InputArray[]= new int [Size];
+			for(int i=0; i<Size; i++)
+			{
+				InputArray[i] = input.nextInt();
+			}
+			System.out.println("4- Zero if less than zero: ");
+			zero_if_less_than_zero(InputArray);
+			for(int i=0; i<Size; i++)
+			{
+				System.out.print(InputArray[i] + " ");
+			}
+			System.out.println("--------------------");
+		}
+		else if(Choice == 5)
+		{
+			int InputArray[]= new int [Size];
+			for(int i=0; i<Size; i++)
+			{
+				InputArray[i] = input.nextInt();
+			}
+			System.out.println("5- Shuffle: ");
+			Shuffle(InputArray);
+			System.out.println("--------------------");
+		}
+		else if(Choice == 6)
+		{
+			int InputArray[]= new int [Size];
+			for(int i=0; i<Size; i++)
+			{
+				InputArray[i] = input.nextInt();
+			}
+			System.out.println("6- Find smallest prime: ");
+			ArrayList<Integer> A = new ArrayList <> ();
+			for(int i=0; i<Size; i++)
+			{
+				if(isPrimeNumber(InputArray[i]) == true)
+				{
+					A.add(InputArray[i]);
+				}
+			}
+			find_min_prime(A);
+			System.out.println("--------------------");
+		}
+		else if(Choice == 7)
+		{
+			int InputArray[]= new int [Size];
+			for(int i=0; i<Size; i++)
+			{
+				InputArray[i] = input.nextInt();
+			}
+			System.out.println("7- Most repeated value: ");
+			ArrayList<Integer> li = new ArrayList <> ();
+			for(int i=0; i<Size; i++)
+			{
+				li.add(input.nextInt());
+			}
+			System.out.println("7- Most repeated value: "+MostRepeatedValue(li));
+			System.out.println("--------------------");
+		}
+		else if(Choice == 0)
+		{
+			int InputArray[]= new int [Size];
+			for(int i=0; i<Size; i++)
+			{
+				InputArray[i] = input.nextInt();
+			}
+			//////////////////////////////////////
+			System.out.println("1- Count primes: "+countprimes(InputArray));
+			System.out.println("--------------------");
+			/////////////////////////////////////////
+			boolean flag2 = CheckSorted(InputArray);
+			if(flag2 == true)
+			{
+				System.out.println("2- Check Sorted: True.");
+			}
+			else if(flag2 == false)
+			{
+				System.out.println("2- Check Sorted: False.");
+			}
+			System.out.println("--------------------");
+			///////////////////////////////////////////
+			System.out.println("3- Return Prime: ");
+			ReturnPrime(InputArray);
+			System.out.println("--------------------");
+			///////////////////////////////////////////
+			System.out.println("4- Zero if less than zero: ");
+			zero_if_less_than_zero(InputArray);
+			for(int i=0; i<Size; i++)
+			{
+				System.out.print(InputArray[i] + " ");
+				System.out.println(" ");
+			}
+			System.out.println("--------------------");
+			////////////////////////////////////////////
+			System.out.println("5- Shuffle: ");
+			Shuffle(InputArray);
+			System.out.println(" ");
+			System.out.println("--------------------");
+			////////////////////////////////////////////
+			System.out.println("6- Find smallest prime: ");
+			ArrayList<Integer> A = new ArrayList <> ();
+			for(int i=0; i<Size; i++)
+			{
+				if(isPrimeNumber(InputArray[i]) == true)
+				{
+					A.add(InputArray[i]);
+				}
+			}
+			find_min_prime(A);
+			System.out.println("--------------------");
+			//////////////////////////////////////////////
+			ArrayList<Integer> li = new ArrayList <> ();
+			for(int i=0; i<Size; i++)
+			{
+				li.add(InputArray[i]);
+			}
+			System.out.println("7- Most repeated value: "+MostRepeatedValue(li));
+			System.out.println("--------------------");
+			///////////////////////////////////////////////
+		}
 	}
 }
+
