@@ -220,20 +220,34 @@ public class MyClass {
     }
 
     ///////////////////////////////////////////////////////////////////////
-   public  static <T> void reverseArray( T[] iArr)
+   // function for array of integers
+    public  static void reverseArray( int[] iArr)
     {
-        int length=iArr.length;
-        T[] revArr = (T[]) new Object[length];
-        for(int i=0;i < length;i++)
+        int len= iArr.length;
+        int[] revArr =  new int[len];
+        for(int i=0;i < len;i++)
         {
-            revArr[i]=iArr[length-i-1];
+            revArr[i]=iArr[len-i-1];
 
         }
-        for(T x:revArr)
+        for(int x:revArr)
             System.out.print(x+" ");
         System.out.println();
     }
+// function for array of charachters
+    public  static void reverseArray( char[] cArr)
+    {
+        int len=cArr.length;
+        char[] revArr =  new char[len];
+        for(int i=0;i < len;i++)
+        {
+            revArr[i]=cArr[len-i-1];
 
+        }
+        for(char x:revArr)
+            System.out.print(x +" ");
+        System.out.println();
+    }
 
   ///////////////////////////////////////////////////////////////////////
 
