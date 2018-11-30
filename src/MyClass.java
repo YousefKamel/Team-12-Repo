@@ -457,5 +457,15 @@ public class MyClass {
         }
     }
 }
+    
+public static boolean palindrome(String data){
+int size;
+    size = data.length();
+      
+ for (int i=0 ;i<size/2;i++){
+ if(data.charAt(i)!= data.charAt(size-1-i))
+    return false; 
+ }   
 
-
+ return true;
+}
