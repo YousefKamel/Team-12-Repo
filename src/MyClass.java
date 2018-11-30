@@ -351,11 +351,7 @@ public class MyClass
 		}
                 else if(Choice == 9)
 		{
-			int Size;
 			ArrayList<Integer> Data = new ArrayList<>();
-			System.out.print("\nEnter Numbers Size : ");
-			Size = input.nextInt();
-			System.out.println("Enter Numbers : ");
 			for(int i=0; i<Size; i++)
 			{
 				int Num = input.nextInt();
