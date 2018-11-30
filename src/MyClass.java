@@ -7,14 +7,13 @@ public class MyClass
 	public MyClass()
 	{	
 	}
-
 	/////////////////////////////////////////////////
-                 public static double getmedian(int []arr)
-                {
+        public static double getmedian(int []arr)
+         {
        	 Arrays.sort(arr);
        	 double median=0;
         	if(arr.length%2==0) //even
-       	 {
+         	 {
         	    int i=arr.length/2;
           	    int k=(arr.length/2)-1;
             	    median+=arr[k];
@@ -22,13 +21,15 @@ public class MyClass
                      median/=2;
                  }
                  else  //odd
-                {
+                 {
                    int i=arr.length/2;
                    median+=arr[i];
                  }
                  return median;
-                 }
-	static void SortArray() {
+          }
+	//////////////////////////////////////////////////////////////
+	static void SortArray()
+	{
         	Scanner scan = new Scanner(System.in);
         	System.out.append("Enter number of elements in array :");
         	int n = scan.nextInt();
@@ -176,6 +177,26 @@ public class MyClass
 	     return(repeated_most);
 	    }
 	////////////////////////////////////////////////////////////////////////////////////////
+	public static void printDistinctElements(int[] arr)
+	{
+        for(int i=0;i<arr.length;i++)
+	{
+            boolean isDistinct = false;
+            for(int j=0;j<i;j++)
+	    {
+                if(arr[i] == arr[j])
+		{
+                    isDistinct = true;
+                    break;
+                }
+            }
+            if(!isDistinct)
+	    {
+                System.out.print(arr[i]+" ");
+            }
+        }
+       }
+	////////////////////////////////////////////////////////////////////////////
 	public static void main(String[] args)
 	{	
 		Scanner input = new Scanner(System.in);
@@ -363,4 +384,3 @@ public class MyClass
 		}
 	}
 }
-
