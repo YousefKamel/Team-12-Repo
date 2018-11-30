@@ -220,6 +220,22 @@ public class MyClass {
     }
 
     ///////////////////////////////////////////////////////////////////////
+   public  static <T> void reverseArray( T[] iArr)
+    {
+        int length=iArr.length;
+        T[] revArr = (T[]) new Object[length];
+        for(int i=0;i < length;i++)
+        {
+            revArr[i]=iArr[length-i-1];
+
+        }
+        for(T x:revArr)
+            System.out.print(x+" ");
+        System.out.println();
+    }
+
+
+  ///////////////////////////////////////////////////////////////////////
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
