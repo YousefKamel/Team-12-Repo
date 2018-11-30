@@ -9,6 +9,25 @@ public class MyClass
 	}
 
 	/////////////////////////////////////////////////
+                 public static double getmedian(int []arr)
+                {
+       	 Arrays.sort(arr);
+       	 double median=0;
+        	if(arr.length%2==0) //even
+       	 {
+        	    int i=arr.length/2;
+          	    int k=(arr.length/2)-1;
+            	    median+=arr[k];
+            	    median+=arr[i];
+                     median/=2;
+                 }
+                 else  //odd
+                {
+                   int i=arr.length/2;
+                   median+=arr[i];
+                 }
+                 return median;
+                 }
 	static void SortArray() {
         	Scanner scan = new Scanner(System.in);
         	System.out.append("Enter number of elements in array :");
