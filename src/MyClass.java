@@ -197,7 +197,34 @@ public class MyClass
         }
        }
 	////////////////////////////////////////////////////////////////////////////
-	public static void main(String[] args)
+
+        public static void Get_Minimum(ArrayList<Integer> Numbers , int Size)
+	{
+		int Temp = 0;
+		ArrayList<Integer> Mini = new ArrayList<>();
+		for(int i=0; i<Numbers.size(); i++)
+		{
+			for(int j=i+1; j<Numbers.size(); j++)
+			{
+				if(Numbers.get(i) > Numbers.get(j))
+				{
+					Temp = Numbers.get(i);
+					Numbers.set(i , Numbers.get(j));
+					Numbers.set(j , Temp);
+				}
+				if(j == Numbers.size() - 1 && !(Mini.contains(Numbers.get(i))))
+				{
+					Mini.add(Numbers.get(i));
+				}
+			}
+		}
+		System.out.print("\nFirst Three Minimum Elements : ");
+		System.out.println(Mini.get(0) + " , " + Mini.get(1) + " , " + Mini.get(2));
+	}
+	
+        ///////////////////////////////////////////////////////////////////////
+
+        public static void main(String[] args)
 	{	
 		Scanner input = new Scanner(System.in);
 		System.out.println("Available Functions: ");
@@ -210,6 +237,7 @@ public class MyClass
 		System.out.println("6- Find smallest prime.");
 		System.out.println("7- Most repeated value.");
 		System.out.println("8- Sort an Array.");
+                System.out.println("9- Get the minimum 3 numbers.");
 		System.out.println("--------------------");
 		System.out.println("Please Enter Function Number You Want OR Enter (0) To Execute All Functions.");
 		int Choice;
@@ -321,6 +349,21 @@ public class MyClass
 		else if (Choice == 8){
 			SortArray();
 		}
+                else if(Choice == 9)
+		{
+			int Size;
+			ArrayList<Integer> Data = new ArrayList<>();
+			System.out.print("\nEnter Numbers Size : ");
+			Size = input.nextInt();
+			System.out.println("Enter Numbers : ");
+			for(int i=0; i<Size; i++)
+			{
+				int Num = input.nextInt();
+				Data.add(Num);
+			}
+			Get_Minimum(Data , Size);
+		}
+
 		else if(Choice == 0)
 		{
 			int InputArray[]= new int [Size];
@@ -382,5 +425,6 @@ public class MyClass
 			System.out.println("--------------------");
 			///////////////////////////////////////////////
 		}
+
 	}
 }
