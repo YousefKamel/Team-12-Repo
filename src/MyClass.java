@@ -1,11 +1,15 @@
+package zzzzzzzzzz;
+
 import java.io.*;
 import java.util.*;
 import java.util.Scanner;
-
 //////////////////////////////////////////////////////////////////////////////////////////
-public class MyClass {
-    public MyClass() {
-    }/////////////////////////////////////////////////
+public class Demo
+{
+	public Demo()
+	{	
+	}
+    /////////////////////////////////////////////////
 	public static boolean isPrimeNumber(int i) {
 		int factors = 0;
 		int j = 1;
@@ -200,19 +204,35 @@ public class MyClass {
 	}
 
     ///////////////////////////////////////////////////////////////////////
-    // function for array of integers
-	/*public static void reverseArray(int[] iArr) {
-		int len = iArr.length;
-		int[] revArr = new int[len];
-		for (int i = 0; i < len; i++) {
-			revArr[i] = iArr[len - i - 1];
-
+	public static boolean exist(int[] arr, int j)
+	{ // to check if a value already exists in the array before
+		for (int i = 0; i < 3; i++)
+			if (arr[i] == j)
+				return true;
+		return false;
+	}
+	//////////////////////////////////////////////////////////////////////
+	public static void GetMax(int[] arr, int size) 
+	{
+		int[] max = new int[] { 0, 0, 0 };
+		int[] ptr = new int[] { -1, -1, -1 }; // used to store position of maximum elements
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < size; j++) 
+			{
+				if (max[i] < arr[j] && !exist(ptr, j)) 
+				{
+					max[i] = arr[j];
+					ptr[i] = j;
+				}
+			}
 		}
-		for (int x : revArr)
-			System.out.print(x + " ");
-		System.out.println();
-	}*/
-    //function for array of charachters
+		for(int i=0; i<3; i++)
+		{
+			System.out.println(max[i]);
+		}
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////
 	public static void reverseArray(String data) {
 		System.out.println(new StringBuilder(data).reverse());
 	}
@@ -241,6 +261,7 @@ public class MyClass {
 		System.out.println("12- Check palindrome.");
 		System.out.println("13- Reverse Array.");
 		System.out.println("14- Get median.");
+		System.out.println("15- Get the maximum 3 numbers.");
 		System.out.println("--------------------");
 		System.out.println("Please Enter Function Number You Want OR Enter (0) To Execute All Functions.");
 		int Choice;
@@ -450,9 +471,23 @@ public class MyClass {
 			System.out.println(Result);
 			System.out.println("--------------------");
 		}
+		else if (Choice == 15) {
+			System.out.println("Please Enter Array Size (Number of Array elements):");
+			int Size;
+			Size = input.nextInt();
+			System.out.println("Please Enter Array Elements (Each element in a new Line):");
+			int InputArray[] = new int[Size];
+			for (int i = 0; i < Size; i++) {
+				InputArray[i] = input.nextInt();
+			}
+			System.out.println("15- Get the Maximum 3 Numbers: ");
+			GetMax(InputArray, Size);
+			System.out.println("--------------------");
+		}
 		/***********************************************************************************************************/
 		else if (Choice == 0)
 		{
+			////////////////////////////////////////////////////////////////////////////
 			System.out.println("1- Count primes");
 			System.out.println("Please Enter Array Size (Number of Array elements):");
 			int Size;
@@ -671,27 +706,20 @@ public class MyClass {
 			System.out.println(Result);
 			System.out.println("--------------------");
 			////////////////////////////////////////////////////////////////////////////
+			System.out.println("15- Get the Maximum 3 Numbers: ");
+			System.out.println("Please Enter Array Size (Number of Array elements):");
+			int Size15 = input.nextInt();
+			System.out.println("Please Enter Array Elements (Each element in a new Line):");
+			int InputArray15[] = new int[Size15];
+			for (int i = 0; i < Size15; i++) 
+			{
+				InputArray15[i] = input.nextInt();
+			}
+			System.out.println("15- Get the Maximum 3 Numbers: ");
+			GetMax(InputArray15, Size15);
+			System.out.println("--------------------");
+			////////////////////////////////////////////////////////////////////////////
 		}
 		}
 	}
 }
-public static boolean exist(int[]arr, int j){ //to check if a value already exists in the array before
-		for(int i=0; i<3; i++)
-			if(arr[i] == j)
-				return true;
-		return false;
-	}
-	
-	public static int[] GetMax(int[] arr, int size){
-		int []max = new int[]{0,0,0};
-		int []ptr = new int[]{-1, -1, -1}; //used to store position of maximum elements
-		for(int i=0; i<3; i++){
-			for(int j=0; j<size; j++){
-				if(max[i] < arr[j] && !exist(ptr, j)){
-					max[i] = arr[j];
-					ptr[i] = j;
-				}
-			}
-		}
-		return max;
-	}
