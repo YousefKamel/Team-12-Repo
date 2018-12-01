@@ -675,3 +675,23 @@ public class MyClass {
 		}
 	}
 }
+public static boolean exist(int[]arr, int j){ //to check if a value already exists in the array before
+		for(int i=0; i<3; i++)
+			if(arr[i] == j)
+				return true;
+		return false;
+	}
+	
+	public static int[] GetMax(int[] arr, int size){
+		int []max = new int[]{0,0,0};
+		int []ptr = new int[]{-1, -1, -1}; //used to store position of maximum elements
+		for(int i=0; i<3; i++){
+			for(int j=0; j<size; j++){
+				if(max[i] < arr[j] && !exist(ptr, j)){
+					max[i] = arr[j];
+					ptr[i] = j;
+				}
+			}
+		}
+		return max;
+	}
